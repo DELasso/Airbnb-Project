@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { AppBar, Box, Toolbar, Typography, Container, InputBase, Paper, IconButton } from '@mui/material';
-import { Search as SearchIcon, AccountCircle, Menu as MenuIcon } from '@mui/icons-material';
+import { Search as SearchIcon, AccountCircle, Menu as MenuIcon, Adjust, SettingsInputComponentSharp, SettingsInputComponentRounded } from '@mui/icons-material';
 import { styled, alpha } from '@mui/material/styles';
 
 const Search = styled('div')(({ theme }) => ({
@@ -50,20 +50,7 @@ export default function Layout({ children }: LayoutProps) {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="sticky" elevation={1} sx={{ backgroundColor: 'white', color: 'black' }}>
         <Toolbar>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ 
-              display: { xs: 'none', sm: 'block' },
-              fontWeight: 'bold',
-              color: '#FF5A5F',
-              cursor: 'pointer'
-            }}
-          >
-            airbnb
-          </Typography>
-          
+          <img src="../../img/Airbnb_Logo_Bélo.svg.png" alt="Airbnb" style={{ width: '100px', height: 'auto' }} />
           {/* Barra de búsqueda central */}
           <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center' }}>
             <Paper
@@ -72,22 +59,25 @@ export default function Layout({ children }: LayoutProps) {
                 p: '2px 4px',
                 display: 'flex',
                 alignItems: 'center',
-                width: { xs: '100%', md: 400 },
+                width: { xs: '100%', md: 550 },
                 boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
                 borderRadius: '40px',
                 border: '1px solid #DDDDDD'
               }}
             >
+              <img src="../../img/logo-casa.png" alt="Airbnb" style={{ width: '50px', height: 'auto', borderRadius: '50%' }} />
               <Box sx={{ p: '10px', fontSize: '14px', fontWeight: 500 }}>
-                ¿A dónde vamos?
+                Alojamientos
               </Box>
-              <Box sx={{ width: 1, height: 32, backgroundColor: '#DDDDDD', mx: 1 }} />
+              <Box sx={{ width: 1, height: 32, backgroundColor: '#ffffff', mx: 1 }} />
+              <img src="../../img/logo-globo.jpg" alt="Airbnb" style={{ width: '50px', height: 'auto', borderRadius: '50%' }} />
               <Box sx={{ p: '10px', fontSize: '14px', fontWeight: 500 }}>
-                Cualquier semana
+                Experiencias
               </Box>
-              <Box sx={{ width: 1, height: 32, backgroundColor: '#DDDDDD', mx: 1 }} />
-              <Box sx={{ p: '10px', fontSize: '14px', color: '#717171' }}>
-                ¿Cuántos huéspedes?
+              <Box sx={{ width: 1, height: 32, backgroundColor: '#ffffff', mx: 1 }} />
+              <img src="../../img/logo-timbre.jpg" alt="Airbnb" style={{ width: '50px', height: 'auto', borderRadius: '50%' }} />
+              <Box sx={{ p: '10px', fontSize: '14px', fontWeight: 500 }}>
+                Servicios
               </Box>
               <IconButton sx={{ p: '10px', backgroundColor: '#FF5A5F', color: 'white', ml: 1 }}>
                 <SearchIcon />
@@ -97,10 +87,13 @@ export default function Layout({ children }: LayoutProps) {
 
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
             <Typography variant="body2" sx={{ display: { xs: 'none', md: 'block' }, fontWeight: 500 }}>
-              Pon tu espacio en Airbnb
+              Conviértete en anfitrión
             </Typography>
-            <IconButton>
-              <AccountCircle />
+            <IconButton sx={{ backgroundColor: '#DDDDDD', color: 'white', borderRadius: '50%' }}>
+              <AccountCircle sx={{ color: '#000000AA' }} />
+            </IconButton>
+            <IconButton sx={{ backgroundColor: '#DDDDDD', color: 'white' }}>
+              <SettingsInputComponentRounded sx={{ color: '#000000AA' }} />
             </IconButton>
           </Box>
         </Toolbar>
