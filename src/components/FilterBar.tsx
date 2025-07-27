@@ -302,6 +302,7 @@ export default function FilterBar({ filtros, onFiltrosChange }: FilterBarProps) 
                        value={filtros.huespedes || ''}
                        onChange={(e) => onFiltrosChange({ ...filtros, huespedes: e.target.value as number })}
                        label="¿Cuántos?"
+                       color="black"
                        displayEmpty
                        sx={{
                          borderRadius: '16px',

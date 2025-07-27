@@ -1,36 +1,3 @@
-export interface Alojamiento {
-  id: number;
-  nombre: string;
-  descripcion: string;
-  imagen: string[];
-  precio: number;
-  ubicacion: {
-    ciudad: string;
-    pais: string;
-    coordenadas?: {
-      lat: number;
-      lng: number;
-    };
-  };
-  huespedes: number;
-  habitaciones: number;
-  camas: number;
-  banos: number;
-  anfitrion: {
-    nombre: string;
-    avatar: string;
-    fechaRegistro: string;
-  };
-  amenidades: string[];
-  calificacion: number;
-  numResenas: number;
-  disponible: boolean;
-  fechasDisponibles?: {
-    inicio: string;
-    fin: string;
-  }[];
-}
-
 export interface FiltrosBusqueda {
   ubicacion?: string;
   fechaEntrada?: string;
@@ -39,6 +6,77 @@ export interface FiltrosBusqueda {
   precioMin?: number;
   precioMax?: number;
   amenidades?: string[];
+}
+
+export interface Ubicacion {
+  ciudad: string;
+  pais: string;
+  coordenadas?: {
+    lat: number;
+    lng: number;
+  };
+}
+
+export interface Anfitrion {
+  nombre: string;
+  avatar: string;
+  fechaRegistro: string;
+}
+
+export interface FechaDisponible {
+  inicio: string;
+  fin: string;
+}
+
+export interface Alojamiento {
+  id: number;
+  nombre: string;
+  descripcion: string;
+  imagen: string[];
+  precio: number;
+  ubicacion: Ubicacion;
+  huespedes: number;
+  habitaciones: number;
+  camas: number;
+  banos: number;
+  anfitrion: Anfitrion;
+  amenidades: string[];
+  calificacion: number;
+  numResenas: number;
+  disponible: boolean;
+  fechasDisponibles?: FechaDisponible[];
+}
+
+// Tipos para autenticación
+export interface User {
+  id: string;
+  email: string;
+  nombre: string;
+  apellido: string;
+  avatar?: string;
+  telefono?: string;
+  fechaNacimiento?: string;
+  descripcion?: string;
+  esAnfitrion: boolean;
+  fechaRegistro: string;
+}
+
+export interface AuthContextType {
+  user: User | null;
+  isAuthenticated: boolean;
+  login: (email: string, password: string) => Promise<boolean>;
+  register: (userData: RegisterData) => Promise<boolean>;
+  logout: () => void;
+  loading: boolean;
+}
+
+export interface RegisterData {
+  email: string;
+  password: string;
+  nombre: string;
+  apellido: string;
+  telefono?: string;
+  fechaNacimiento?: string;
 }
 
 export interface Reserva {

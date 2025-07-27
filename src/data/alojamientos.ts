@@ -6,11 +6,11 @@ export const alojamientosData: Alojamiento[] = [
     nombre: "Apartamento acogedor en Medellín",
     descripcion: "Hermoso apartamento en el corazón de Medellín con vista panorámica a las montañas. Completamente equipado con todo lo que necesitas para una estancia perfecta. Ubicado en el barrio El Poblado, cerca de restaurantes, cafés y transporte público.",
     imagen: [
-      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1574691250077-03a929faece5?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop"
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-1200061060937602799/original/52a86a8a-e3d1-4dce-ba5b-e944bec72f91.jpeg?im_w=1440",
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-1200061060937602799/original/d210ade7-bc0c-4fa5-9da4-744303b53f09.jpeg?im_w=1440",
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-1200061060937602799/original/479a7eca-001e-4a34-ada6-023cbc4eac64.jpeg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-1200061060937602799/original/3c58a876-ae8f-4310-aad0-847be6b850bb.jpeg?im_w=1440",
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-1200061060937602799/original/bc76f588-6960-4242-9ab5-3c548050eca2.jpeg?im_w=1440"
     ],
     precio: 120000,
     ubicacion: {
@@ -35,8 +35,8 @@ export const alojamientosData: Alojamiento[] = [
     numResenas: 127,
     disponible: true,
     fechasDisponibles: [
-      { inicio: "2024-02-01", fin: "2024-02-28" },
-      { inicio: "2024-03-15", fin: "2024-04-30" }
+      { inicio: "2025-02-01", fin: "2025-08-28" },
+      { inicio: "2025-03-15", fin: "2025-09-30" }
     ]
   },
   {
@@ -44,11 +44,11 @@ export const alojamientosData: Alojamiento[] = [
     nombre: "Cabaña rústica en Guatapé",
     descripcion: "Escápate a esta hermosa cabaña frente al lago en Guatapé. Perfecta para desconectarte y disfrutar de la naturaleza. Incluye kayaks y acceso privado al lago. Ideal para parejas o familias pequeñas que buscan tranquilidad.",
     imagen: [
-      "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1551632436-cbf8dd35addd?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1618767689160-da3fb810aad7?w=400&h=300&fit=crop"
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NjcwODg2NDQzODEyMzQzMDE4/original/f279b37e-6f52-48cf-892f-fae0b8765c5d.jpeg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-670886443812343018/original/3c9b5304-9ff4-44f4-a3d4-1a0bee90d97f.jpeg?im_w=1440",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-670886443812343018/original/521dd886-9885-4abe-b1b8-6f1f16f4caa9.jpeg?im_w=1440",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-670886443812343018/original/2507550d-7dcc-4671-be66-688bea5da05c.jpeg?im_w=1440",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-670886443812343018/original/07804526-308d-4034-9485-97b6a4fb7b8d.jpeg?im_w=1440"
     ],
     precio: 200000,
     ubicacion: {
@@ -73,7 +73,7 @@ export const alojamientosData: Alojamiento[] = [
     numResenas: 89,
     disponible: true,
     fechasDisponibles: [
-      { inicio: "2024-02-10", fin: "2024-05-30" }
+      { inicio: "2025-09-10", fin: "2025-10-30" }
     ]
   },
   {
@@ -81,11 +81,11 @@ export const alojamientosData: Alojamiento[] = [
     nombre: "Loft moderno en Bogotá",
     descripcion: "Loft de diseño contemporáneo en la Zona Rosa de Bogotá. Perfectamente ubicado para explorar la vida nocturna, restaurantes gourmet y centros comerciales. Decorado con arte local y muebles de diseñador.",
     imagen: [
-      "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1556909114-4f6e3c0ca584?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1565182999561-18d7dc61c393?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1571624436279-b272aff752b5?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop"
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTMzMTMzNzI5MTMzODc1MzQ0OQ%3D%3D/original/16dbdfe9-045c-43fb-84d2-e6b4644b793a.jpeg?im_w=1440",
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-1468947593017750953/original/23447373-ab10-4a52-8cf4-a591a21f0455.jpeg?im_w=1440",
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-1468947593017750953/original/870c134d-e9fa-4924-86a5-d12a4375d745.jpeg?im_w=1440",
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-1468947593017750953/original/611bfdba-8cc4-46f5-81a9-0aeac1fe4d27.jpeg?im_w=1440",
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-1468947593017750953/original/0a9e9d69-5b54-43cf-aa30-0a4101d6f008.jpeg?im_w=1440"
     ],
     precio: 180000,
     ubicacion: {
@@ -110,7 +110,7 @@ export const alojamientosData: Alojamiento[] = [
     numResenas: 203,
     disponible: true,
     fechasDisponibles: [
-      { inicio: "2024-02-01", fin: "2024-06-30" }
+      { inicio: "2025-08-01", fin: "2025-11-30" }
     ]
   },
   {
@@ -118,11 +118,11 @@ export const alojamientosData: Alojamiento[] = [
     nombre: "Casa colonial en Cartagena",
     descripcion: "Encantadora casa colonial en el centro histórico de Cartagena. Con patios internos, arquitectura original y todas las comodidades modernas. A pocos pasos de las murallas y la vida nocturna del centro.",
     imagen: [
-      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1505873242700-f289a29e1e0f?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1505791938895-1537094a8cdf?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1560185127-6ed189bf02f4?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=400&h=300&fit=crop"
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-1354611359259821887/original/388678b4-9db3-411e-9226-eb083a104a55.jpeg?im_w=1440",
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-1354611359259821887/original/682671b8-3303-40d1-aef6-2e3aca8bd347.jpeg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-1354611359259821887/original/a837a161-9a1c-4a01-a895-44be4e96a0f0.jpeg?im_w=1440",
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-1354611359259821887/original/c963a1f4-8da8-41d9-a210-8796edabc29a.jpeg?im_w=1440",
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-1354611359259821887/original/d39ef2b4-08b6-4f21-be44-8f82509a7a23.jpeg?im_w=1440"
     ],
     precio: 350000,
     ubicacion: {
@@ -147,7 +147,7 @@ export const alojamientosData: Alojamiento[] = [
     numResenas: 156,
     disponible: true,
     fechasDisponibles: [
-      { inicio: "2024-03-01", fin: "2024-07-31" }
+      { inicio: "2025-07-01", fin: "2025-09-31" }
     ]
   },
   {
@@ -155,11 +155,11 @@ export const alojamientosData: Alojamiento[] = [
     nombre: "Apartamento frente al mar en Santa Marta",
     descripcion: "Despierta con vista al mar Caribe en este moderno apartamento. Balcón con vista panorámica, piscina en la azotea y acceso directo a la playa. Perfecto para unas vacaciones relajantes.",
     imagen: [
-      "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=400&h=300&fit=crop"
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6OTAwNjY5MzQxNzY0MDE2NzMx/original/bc4161e8-5ccc-4aba-b7cb-5f477ec47c6d.jpeg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6OTAwNjY5MzQxNzY0MDE2NzMx/original/a9326270-31ff-4a02-94b0-8bcedc981eb4.jpeg?im_w=1440",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-900669341764016731/original/a35f2853-e19b-4ae9-a6a0-ef7245411608.jpeg?im_w=1440",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-900669341764016731/original/0e270ce2-e486-49ba-bb2f-e11842940afb.jpeg?im_w=1440",
+      "https://a0.muscache.com/im/pictures/miso/Hosting-900669341764016731/original/382608f5-ec93-45c3-873a-adf05aecc964.jpeg?im_w=1440"
     ],
     precio: 280000,
     ubicacion: {
@@ -184,7 +184,7 @@ export const alojamientosData: Alojamiento[] = [
     numResenas: 94,
     disponible: true,
     fechasDisponibles: [
-      { inicio: "2024-02-15", fin: "2024-08-31" }
+      { inicio: "2025-02-15", fin: "2025-08-31" }
     ]
   },
   {
@@ -192,11 +192,11 @@ export const alojamientosData: Alojamiento[] = [
     nombre: "Finca campestre en el Eje Cafetero",
     descripcion: "Vive la experiencia auténtica del café colombiano en esta hermosa finca. Tours de café incluidos, cabalgatas, y la tranquilidad del campo. Ideal para familias y grupos que buscan aventura.",
     imagen: [
-      "https://images.unsplash.com/photo-1586861203927-800a5acdcc4d?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1542652734-4c8ffe3ea97a?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=400&h=300&fit=crop",
-      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop"
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-47131172/original/d7ed1429-29a1-48c7-83bc-4ea715b80455.jpeg?im_w=1200",
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-47131172/original/520bbf16-ebe3-43ea-a329-c79767c27db8.jpeg?im_w=1440",
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-47131172/original/b44f7063-293c-437e-8878-2a348a1483dd.jpeg?im_w=1440",
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-47131172/original/eacb054a-49e1-453c-8c19-5452ddc99d0f.jpeg?im_w=1440",
+      "https://a0.muscache.com/im/pictures/hosting/Hosting-47131172/original/e4de690a-6b9d-465a-b48c-b78f086c2423.jpeg?im_w=1440"
     ],
     precio: 150000,
     ubicacion: {
@@ -221,7 +221,7 @@ export const alojamientosData: Alojamiento[] = [
     numResenas: 167,
     disponible: true,
     fechasDisponibles: [
-      { inicio: "2024-02-01", fin: "2024-12-31" }
+      { inicio: "2025-02-01", fin: "2025-12-31" }
     ]
   }
 ]; 
