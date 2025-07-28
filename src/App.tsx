@@ -9,7 +9,7 @@ import AlojamientoDetalle from './pages/AlojamientoDetalle';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#FF5A5F', // Color característico de Airbnb
+      main: '#FF5A5F',
     },
     secondary: {
       main: '#00A699',

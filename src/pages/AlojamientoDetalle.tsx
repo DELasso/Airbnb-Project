@@ -45,6 +45,7 @@ import {
 import { styled, keyframes } from '@mui/material/styles';
 import { alojamientosData } from '../data/alojamientos';
 import CommentsSection from '../components/CommentsSection';
+import PaymentModal from '../components/PaymentModal';
 
 // Animaciones
 const fadeInUp = keyframes`
@@ -165,6 +166,7 @@ export default function AlojamientoDetalle() {
   const [isFavorite, setIsFavorite] = useState(false);
   const [loading, setLoading] = useState(true);
   const [isReservationSticky, setIsReservationSticky] = useState(true);
+  const [showPaymentModal, setShowPaymentModal] = useState(false);
   const commentsRef = useRef<HTMLDivElement>(null);
 
   // Simular carga
@@ -235,6 +237,15 @@ export default function AlojamientoDetalle() {
   const prevImage = () => {
     setCurrentImageIndex((prev) => (prev - 1 + alojamiento.imagen.length) % alojamiento.imagen.length);
   };
+
+  const handleReservation = () => {
+    setShowPaymentModal(true);
+  };
+
+  const nights = 5; // En una app real, esto vendría de un selector de fechas
+  const serviceFee = Math.round(alojamiento.precio * nights * 0.14);
+  const taxes = Math.round(alojamiento.precio * nights * 0.05);
+  const totalPrice = Math.round(alojamiento.precio * nights * 1.19);
 
   if (loading) {
     return (
@@ -547,6 +558,7 @@ export default function AlojamientoDetalle() {
               variant="contained" 
               fullWidth 
               size="large"
+              onClick={handleReservation}
               sx={{ 
                 mb: 3,
                 py: 2,
@@ -574,22 +586,29 @@ export default function AlojamientoDetalle() {
             {/* Desglose de precios */}
             <Box sx={{ mb: 2 }}>
               <Typography variant="h6" gutterBottom sx={{ fontWeight: 600 }}>
-                Desglose de precios (5 noches)
+                Desglose de precios ({nights} noches)
               </Typography>
               
               <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1 }}>
                 <Typography variant="body2">
-                  ${alojamiento.precio.toLocaleString()} x 5 noches
+                  ${alojamiento.precio.toLocaleString()} x {nights} noches
                 </Typography>
                 <Typography variant="body2">
-                  ${(alojamiento.precio * 5).toLocaleString()}
+                  ${(alojamiento.precio * nights).toLocaleString()}
+                </Typography>
+              </Box>
+
+              <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1 }}>
+                <Typography variant="body2">Tarifa de servicio</Typography>
+                <Typography variant="body2">
+                  ${serviceFee.toLocaleString()}
                 </Typography>
               </Box>
 
               <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2 }}>
-                <Typography variant="body2">Tarifa de servicio</Typography>
+                <Typography variant="body2">Impuestos</Typography>
                 <Typography variant="body2">
-                  ${Math.round(alojamiento.precio * 5 * 0.14).toLocaleString()}
+                  ${taxes.toLocaleString()}
                 </Typography>
               </Box>
 
@@ -600,7 +619,7 @@ export default function AlojamientoDetalle() {
                   Total
                 </Typography>
                 <Typography variant="h6" fontWeight="bold" sx={{ color: '#FF5A5F' }}>
-                  ${Math.round(alojamiento.precio * 5 * 1.14).toLocaleString()}
+                  ${totalPrice.toLocaleString()}
                 </Typography>
               </Box>
             </Box>
@@ -639,6 +658,15 @@ export default function AlojamientoDetalle() {
           </Box>
         </Grow>
       </Box>
+
+      {/* Modal de Pago */}
+      <PaymentModal
+        open={showPaymentModal}
+        onClose={() => setShowPaymentModal(false)}
+        alojamiento={alojamiento}
+        nights={nights}
+        totalPrice={totalPrice}
+      />
     </Container>
   );
 } 
