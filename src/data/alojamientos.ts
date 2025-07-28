@@ -37,6 +37,82 @@ export const alojamientosData: Alojamiento[] = [
     fechasDisponibles: [
       { inicio: "2025-02-01", fin: "2025-08-28" },
       { inicio: "2025-03-15", fin: "2025-09-30" }
+    ],
+    calificacionPromedio: {
+      limpieza: 4.9,
+      comunicacion: 4.8,
+      llegada: 4.7,
+      precision: 4.8,
+      ubicacion: 4.9,
+      precio: 4.7,
+      general: 4.8
+    },
+    comentarios: [
+      {
+        id: 1,
+        usuarioId: "user1",
+        usuarioNombre: "María González",
+        usuarioAvatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
+        fechaEstancia: "2024-11-15",
+        fechaComentario: "2024-11-22",
+        calificacionGeneral: 5,
+        calificaciones: {
+          limpieza: 5,
+          comunicacion: 5,
+          llegada: 4,
+          precision: 5,
+          ubicacion: 5,
+          precio: 4
+        },
+        comentario: "¡Excelente apartamento! La ubicación es perfecta, muy cerca de todo lo que necesitas en El Poblado. Carolina fue muy atenta y nos dio excelentes recomendaciones. El apartamento estaba impecable y la vista a las montañas es espectacular. Definitivamente regresaríamos.",
+        respuestaAnfitrion: {
+          fecha: "2024-11-23",
+          respuesta: "¡Muchas gracias María! Fue un placer hospedarlos. Espero que hayan disfrutado mucho su visita a Medellín. ¡Los esperamos de vuelta pronto!"
+        },
+        util: 8
+      },
+      {
+        id: 2,
+        usuarioId: "user2",
+        usuarioNombre: "Carlos Ramírez",
+        usuarioAvatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+        fechaEstancia: "2024-10-20",
+        fechaComentario: "2024-10-27",
+        calificacionGeneral: 4,
+        calificaciones: {
+          limpieza: 5,
+          comunicacion: 4,
+          llegada: 4,
+          precision: 4,
+          ubicacion: 5,
+          precio: 4
+        },
+        comentario: "Muy buen lugar, cómodo y bien ubicado. El proceso de check-in fue sencillo. Solo un pequeño inconveniente con el aire acondicionado que se resolvió rápidamente. La zona es excelente para salir a caminar y conocer restaurantes.",
+        util: 5
+      },
+      {
+        id: 3,
+        usuarioId: "user3",
+        usuarioNombre: "Ana Sofía Vargas",
+        usuarioAvatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face",
+        fechaEstancia: "2024-09-10",
+        fechaComentario: "2024-09-15",
+        calificacionGeneral: 5,
+        calificaciones: {
+          limpieza: 5,
+          comunicacion: 5,
+          llegada: 5,
+          precision: 5,
+          ubicacion: 5,
+          precio: 5
+        },
+        comentario: "Perfecto en todos los aspectos. Carolina es una anfitriona increíble, muy comunicativa y dispuesta a ayudar. El apartamento es tal como se muestra en las fotos, muy limpio y cómodo. La ubicación es privilegiada. ¡Altamente recomendado!",
+        respuestaAnfitrion: {
+          fecha: "2024-09-16",
+          respuesta: "¡Qué alegría leer tu comentario Ana Sofía! Gracias por cuidar tan bien el apartamento y por ser huéspedes tan considerados. ¡Siempre serán bienvenidos!"
+        },
+        util: 12
+      }
     ]
   },
   {
@@ -74,6 +150,59 @@ export const alojamientosData: Alojamiento[] = [
     disponible: true,
     fechasDisponibles: [
       { inicio: "2025-09-10", fin: "2025-10-30" }
+    ],
+    calificacionPromedio: {
+      limpieza: 4.9,
+      comunicacion: 4.8,
+      llegada: 4.8,
+      precision: 4.9,
+      ubicacion: 5.0,
+      precio: 4.8,
+      general: 4.9
+    },
+    comentarios: [
+      {
+        id: 4,
+        usuarioId: "user4",
+        usuarioNombre: "Diego Morales",
+        usuarioAvatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face",
+        fechaEstancia: "2024-08-15",
+        fechaComentario: "2024-08-20",
+        calificacionGeneral: 5,
+        calificaciones: {
+          limpieza: 5,
+          comunicacion: 5,
+          llegada: 5,
+          precision: 5,
+          ubicacion: 5,
+          precio: 5
+        },
+        comentario: "¡Increíble experiencia en Guatapé! La cabaña es hermosa, muy cómoda y la vista al lago es de ensueño. Miguel nos recibió de maravilla y los kayaks fueron el toque perfecto. Totalmente recomendado para una escapada romántica o familiar.",
+        respuestaAnfitrion: {
+          fecha: "2024-08-21",
+          respuesta: "¡Muchas gracias Diego! Me alegra saber que disfrutaron tanto de la cabaña y del lago. Es un placer compartir este hermoso lugar con huéspedes como ustedes."
+        },
+        util: 15
+      },
+      {
+        id: 5,
+        usuarioId: "user5",
+        usuarioNombre: "Valentina Castro",
+        usuarioAvatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face",
+        fechaEstancia: "2024-07-10",
+        fechaComentario: "2024-07-15",
+        calificacionGeneral: 5,
+        calificaciones: {
+          limpieza: 5,
+          comunicacion: 4,
+          llegada: 5,
+          precision: 5,
+          ubicacion: 5,
+          precio: 4
+        },
+        comentario: "Lugar mágico para desconectarse. Las vistas son espectaculares y poder usar los kayaks fue fantástico. La cabaña tiene todo lo necesario y está muy bien equipada. Definitivamente volveremos.",
+        util: 9
+      }
     ]
   },
   {

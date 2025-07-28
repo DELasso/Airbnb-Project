@@ -45,6 +45,8 @@ export interface Alojamiento {
   numResenas: number;
   disponible: boolean;
   fechasDisponibles?: FechaDisponible[];
+  comentarios?: Comentario[];
+  calificacionPromedio?: CalificacionPromedio;
 }
 
 // Tipos para autenticación
@@ -87,4 +89,39 @@ export interface Reserva {
   huespedes: number;
   precioTotal: number;
   estado: 'pendiente' | 'confirmada' | 'cancelada';
+}
+
+// Tipos para comentarios y calificaciones
+export interface Comentario {
+  id: number;
+  usuarioId: string;
+  usuarioNombre: string;
+  usuarioAvatar: string;
+  fechaEstancia: string;
+  fechaComentario: string;
+  calificacionGeneral: number;
+  calificaciones: {
+    limpieza: number;
+    comunicacion: number;
+    llegada: number;
+    precision: number;
+    ubicacion: number;
+    precio: number;
+  };
+  comentario: string;
+  respuestaAnfitrion?: {
+    fecha: string;
+    respuesta: string;
+  };
+  util: number; // número de personas que encontraron útil el comentario
+}
+
+export interface CalificacionPromedio {
+  limpieza: number;
+  comunicacion: number;
+  llegada: number;
+  precision: number;
+  ubicacion: number;
+  precio: number;
+  general: number;
 } 

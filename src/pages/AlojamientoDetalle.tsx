@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { 
   Container, 
@@ -44,6 +44,7 @@ import {
 } from '@mui/icons-material';
 import { styled, keyframes } from '@mui/material/styles';
 import { alojamientosData } from '../data/alojamientos';
+import CommentsSection from '../components/CommentsSection';
 
 // Animaciones
 const fadeInUp = keyframes`
@@ -133,15 +134,17 @@ const InfoCard = styled(Paper)(({ theme }) => ({
   }
 }));
 
-const ReservationCard = styled(Paper)(({ theme }) => ({
+const ReservationCard = styled(Paper)<{ $isSticky: boolean }>(({ theme, $isSticky }) => ({
   padding: theme.spacing(4),
   borderRadius: '24px',
-  position: 'sticky',
-  top: 100,
+  position: $isSticky ? 'sticky' : 'static',
+  top: $isSticky ? 100 : 'auto',
   background: 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)',
   border: '1px solid rgba(255, 90, 95, 0.1)',
   boxShadow: '0 12px 40px rgba(255, 90, 95, 0.15)',
   animation: `${fadeInUp} 0.6s ease-out`,
+  zIndex: $isSticky ? 10 : 1,
+  transition: 'all 0.3s ease',
 }));
 
 const AmenityChip = styled(Chip)(({ theme }) => ({
@@ -161,11 +164,34 @@ export default function AlojamientoDetalle() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isFavorite, setIsFavorite] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [isReservationSticky, setIsReservationSticky] = useState(true);
+  const commentsRef = useRef<HTMLDivElement>(null);
 
   // Simular carga
   useState(() => {
     setTimeout(() => setLoading(false), 1000);
   });
+
+  // Controlar sticky del panel de reservas
+  useEffect(() => {
+    const handleScroll = () => {
+      if (commentsRef.current) {
+        const commentsRect = commentsRef.current.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
+        
+        // Si la sección de comentarios está visible en la pantalla
+        const isCommentsVisible = commentsRect.top < viewportHeight && commentsRect.bottom > 0;
+        
+        // Desactivar sticky cuando los comentarios están visibles
+        setIsReservationSticky(!isCommentsVisible);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Ejecutar al montar el componente
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const alojamiento = alojamientosData.find(a => a.id === Number(id));
 
@@ -485,7 +511,7 @@ export default function AlojamientoDetalle() {
 
         {/* Columna derecha - Panel de reserva */}
         <Grow in timeout={600}>
-          <ReservationCard>
+          <ReservationCard $isSticky={isReservationSticky}>
             {/* Precio */}
             <Box sx={{ textAlign: 'center', mb: 3 }}>
               <Typography 
@@ -598,6 +624,19 @@ export default function AlojamientoDetalle() {
               </Typography>
             </Box>
           </ReservationCard>
+        </Grow>
+
+                {/* Sección de comentarios */}
+        <Grow in timeout={1600}>
+          <Box ref={commentsRef} sx={{ gridColumn: '1 / -1' }}>
+            <CommentsSection
+               comentarios={alojamiento.comentarios}
+               calificacionPromedio={alojamiento.calificacionPromedio}
+               calificacionGeneral={alojamiento.calificacion}
+               numResenas={alojamiento.numResenas}
+               alojamientoId={alojamiento.id}
+             />
+          </Box>
         </Grow>
       </Box>
     </Container>

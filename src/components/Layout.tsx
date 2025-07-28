@@ -1,4 +1,5 @@
-import { ReactNode, useState } from 'react';
+import { useState } from 'react';
+import type { ReactNode } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AppBar, Box, Toolbar, Typography, Container, InputBase, Paper, IconButton, Button, Grow, Chip, Menu, MenuItem, Avatar, Divider } from '@mui/material';
 import { Search as SearchIcon, AccountCircle, Menu as MenuIcon, Adjust, SettingsInputComponentSharp, SettingsInputComponentRounded, Home, Explore, Build, Login, PersonAdd, Logout, Settings, FavoriteBorder } from '@mui/icons-material';
@@ -210,7 +211,7 @@ export default function Layout({ children, onFilterChange, activeFilter = 'aloja
       label: 'Alojamientos',
       icon: <Home className="nav-icon" />,
       image: '../../img/logo-casa.png',
-      count: 127
+      count: 6
     },
     {
       key: 'experiencias' as FilterType,

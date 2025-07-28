@@ -4,7 +4,7 @@ import {
   Container, 
   Typography, 
   Box, 
-  Grid, 
+ 
   Card, 
   CardMedia, 
   CardContent, 
@@ -111,10 +111,19 @@ export default function Home() {
         </Box>
 
         {/* Grid de alojamientos filtrados */}
-        <Grid container spacing={3}>
-          {alojamientosFiltrados.map((alojamiento) => (
-            <Grid item xs={12} sm={6} md={4} lg={3} key={alojamiento.id}>
-              <Card 
+                  <Box sx={{
+            display: 'grid',
+            gridTemplateColumns: {
+              xs: '1fr',
+              sm: 'repeat(2, 1fr)',
+              md: 'repeat(3, 1fr)',
+              lg: 'repeat(4, 1fr)'
+            },
+            gap: 3
+          }}>
+            {alojamientosFiltrados.map((alojamiento) => (
+                <Card
+                  key={alojamiento.id} 
                 sx={{ 
                   borderRadius: '12px',
                   border: 'none',
@@ -242,10 +251,9 @@ export default function Home() {
                     </Box>
                   </CardContent>
                 </CardActionArea>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
+                              </Card>
+            ))}
+          </Box>
 
         {/* Mensaje cuando no hay resultados */}
         {alojamientosFiltrados.length === 0 && (
