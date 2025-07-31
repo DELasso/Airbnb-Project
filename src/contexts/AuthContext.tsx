@@ -1,5 +1,5 @@
-import { createContext, useContext, useState, useEffect } from 'react';
-import type { ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { supabase } from '../lib/supabaseClient';
 import type { User, AuthContextType, RegisterData } from '../types';
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -20,96 +20,88 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
 
-  // Cargar usuario desde localStorage al inicializar
+  // Cargar usuario desde Supabase al inicializar
   useEffect(() => {
-    const storedUser = localStorage.getItem('airbnb_user');
-    if (storedUser) {
-      try {
-        setUser(JSON.parse(storedUser));
-      } catch (error) {
-        console.error('Error parsing stored user:', error);
-        localStorage.removeItem('airbnb_user');
+    const getSession = async () => {
+      setLoading(true);
+      const { data, error } = await supabase.auth.getUser();
+      if (data?.user) {
+        setUser({
+          id: data.user.id,
+          email: data.user.email ?? '',
+          nombre: data.user.user_metadata?.nombre ?? '',
+          apellido: data.user.user_metadata?.apellido ?? '',
+          avatar: data.user.user_metadata?.avatar ?? '',
+          esAnfitrion: data.user.user_metadata?.esAnfitrion ?? false,
+          fechaRegistro: data.user.created_at?.split('T')[0] ?? ''
+        });
+      } else {
+        setUser(null);
       }
-    }
-    setLoading(false);
+      setLoading(false);
+    };
+    getSession();
   }, []);
 
-  // Simular login (en una app real, esto sería una llamada a la API)
+  // Login con Supabase
   const login = async (email: string, password: string): Promise<boolean> => {
     setLoading(true);
-    
-    try {
-      // Simular delay de red
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // Simular validación (en una app real, esto sería validado por el servidor)
-      if (email && password.length >= 6) {
-        const mockUser: User = {
-          id: Date.now().toString(),
-          email,
-          nombre: email.split('@')[0].split('.')[0] || 'Usuario',
-          apellido: email.split('@')[0].split('.')[1] || 'Apellido',
-          avatar: `https://ui-avatars.com/api/?name=${email.split('@')[0]}&background=FF5A5F&color=fff`,
-          esAnfitrion: false,
-          fechaRegistro: new Date().toISOString().split('T')[0]
-        };
-        
-        setUser(mockUser);
-        localStorage.setItem('airbnb_user', JSON.stringify(mockUser));
-        setLoading(false);
-        return true;
-      }
-      
-      setLoading(false);
-      return false;
-    } catch (error) {
-      console.error('Login error:', error);
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+    if (error || !data.user) {
       setLoading(false);
       return false;
     }
+    setUser({
+      id: data.user.id,
+      email: data.user.email ?? '',
+      nombre: data.user.user_metadata?.nombre ?? '',
+      apellido: data.user.user_metadata?.apellido ?? '',
+      avatar: data.user.user_metadata?.avatar ?? '',
+      esAnfitrion: data.user.user_metadata?.esAnfitrion ?? false,
+      fechaRegistro: data.user.created_at?.split('T')[0] ?? ''
+    });
+    setLoading(false);
+    return true;
   };
 
-  // Simular registro
+  // Registro con Supabase
   const register = async (userData: RegisterData): Promise<boolean> => {
     setLoading(true);
-    
-    try {
-      // Simular delay de red
-      await new Promise(resolve => setTimeout(resolve, 1200));
-      
-      // Simular validación
-      if (userData.email && userData.password.length >= 6 && userData.nombre && userData.apellido) {
-        const newUser: User = {
-          id: Date.now().toString(),
-          email: userData.email,
+    const { data, error } = await supabase.auth.signUp({
+      email: userData.email,
+      password: userData.password,
+      options: {
+        data: {
           nombre: userData.nombre,
           apellido: userData.apellido,
           telefono: userData.telefono,
           fechaNacimiento: userData.fechaNacimiento,
           avatar: `https://ui-avatars.com/api/?name=${userData.nombre}+${userData.apellido}&background=FF5A5F&color=fff`,
-          esAnfitrion: false,
-          fechaRegistro: new Date().toISOString().split('T')[0]
-        };
-        
-        setUser(newUser);
-        localStorage.setItem('airbnb_user', JSON.stringify(newUser));
-        setLoading(false);
-        return true;
+          esAnfitrion: false
+        }
       }
-      
-      setLoading(false);
-      return false;
-    } catch (error) {
-      console.error('Register error:', error);
+    });
+    if (error || !data.user) {
       setLoading(false);
       return false;
     }
+    setUser({
+      id: data.user.id,
+      email: data.user.email ?? '',
+      nombre: userData.nombre,
+      apellido: userData.apellido,
+      avatar: `https://ui-avatars.com/api/?name=${userData.nombre}+${userData.apellido}&background=FF5A5F&color=fff`,
+      esAnfitrion: false,
+      fechaRegistro: data.user.created_at?.split('T')[0] ?? ''
+    });
+    setLoading(false);
+    return true;
   };
 
-  // Logout
-  const logout = () => {
+  // Logout con Supabase
+  const logout = async () => {
+    await supabase.auth.signOut();
     setUser(null);
-    localStorage.removeItem('airbnb_user');
   };
 
   const value: AuthContextType = {
@@ -122,4 +114,4 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
-}; 
+};

@@ -669,4 +669,4 @@ export default function AlojamientoDetalle() {
       />
     </Container>
   );
-} 
+}
